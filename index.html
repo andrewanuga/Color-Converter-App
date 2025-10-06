@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Color Measurer</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="nova.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Advanced Color Measurer</h1>
+        <p class="subtitle">Select any color using RGB, HSL, or HEX values</p>
+    </header>
+    
+    <div class="container">
+        <div class="color-picker-container">
+            <div class="color-preview" id="color-preview"></div>
+            
+            <div class="input-sections">
+                <div class="input-section">
+                    <h3 class="section-title">RGB Color</h3>
+                    <div class="color-inputs">
+                        <div class="color-input">
+                            <label for="red-input">Red</label>
+                            <input type="number" id="red-input" min="0" max="255" value="120">
+                        </div>
+                        <div class="color-input">
+                            <label for="green-input">Green</label>
+                            <input type="number" id="green-input" min="0" max="255" value="80">
+                        </div>
+                        <div class="color-input">
+                            <label for="blue-input">Blue</label>
+                            <input type="number" id="blue-input" min="0" max="255" value="200">
+                        </div>
+                    </div>
+                    
+                    <div class="color-sliders">
+                        <div class="slider-container">
+                            <label for="red-slider">
+                                <span>Red</span>
+                                <span id="red-value">120</span>
+                            </label>
+                            <input type="range" min="0" max="255" value="120" class="slider" id="red-slider">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="green-slider">
+                                <span>Green</span>
+                                <span id="green-value">80</span>
+                            </label>
+                            <input type="range" min="0" max="255" value="80" class="slider" id="green-slider">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="blue-slider">
+                                <span>Blue</span>
+                                <span id="blue-value">200</span>
+                            </label>
+                            <input type="range" min="0" max="255" value="200" class="slider" id="blue-slider">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-section">
+                    <h3 class="section-title">HSL Color</h3>
+                    <div class="color-inputs">
+                        <div class="color-input">
+                            <label for="hue-input">Hue</label>
+                            <input type="number" id="hue-input" min="0" max="360" value="260">
+                        </div>
+                        <div class="color-input">
+                            <label for="saturation-input">Saturation</label>
+                            <input type="number" id="saturation-input" min="0" max="100" value="52">
+                        </div>
+                        <div class="color-input">
+                            <label for="lightness-input">Lightness</label>
+                            <input type="number" id="lightness-input" min="0" max="100" value="55">
+                        </div>
+                    </div>
+                    
+                    <div class="color-sliders">
+                        <div class="slider-container">
+                            <label for="hue-slider">
+                                <span>Hue</span>
+                                <span id="hue-value">260°</span>
+                            </label>
+                            <input type="range" min="0" max="360" value="260" class="slider" id="hue-slider">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="saturation-slider">
+                                <span>Saturation</span>
+                                <span id="saturation-value">52%</span>
+                            </label>
+                            <input type="range" min="0" max="100" value="52" class="slider" id="saturation-slider">
+                        </div>
+                        
+                        <div class="slider-container">
+                            <label for="lightness-slider">
+                                <span>Lightness</span>
+                                <span id="lightness-value">55%</span>
+                            </label>
+                            <input type="range" min="0" max="100" value="55" class="slider" id="lightness-slider">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-section">
+                    <h3 class="section-title">HEX Color</h3>
+                    <div class="color-inputs">
+                        <div class="color-input hex-input">
+                            <label for="hex-input">Hex Code</label>
+                            <input type="text" id="hex-input" value="#7850C8" maxlength="7">
+                        </div>
+                    </div>
+                    
+                    <div class="input-actions">
+                        <button class="action-btn random-btn" id="random-btn">Random Color</button>
+                        <button class="action-btn invert-btn" id="invert-btn">Invert Color</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="color-info">
+            <h2>Color Information</h2>
+            <div class="color-values">
+                <div class="value-box" id="rgb-box">
+                    <div class="value-title">
+                        <span>RGB Value</span>
+                        <span class="copy-icon">📋</span>
+                    </div>
+                    <div class="value-content" id="rgb-value">rgb(120, 80, 200)</div>
+                    <div class="copy-indicator">Copied!</div>
+                </div>
+                <div class="value-box" id="hex-box">
+                    <div class="value-title">
+                        <span>HEX Value</span>
+                        <span class="copy-icon">📋</span>
+                    </div>
+                    <div class="value-content" id="hex-value">#7850C8</div>
+                    <div class="copy-indicator">Copied!</div>
+                </div>
+                <div class="value-box" id="hsl-box">
+                    <div class="value-title">
+                        <span>HSL Value</span>
+                        <span class="copy-icon">📋</span>
+                    </div>
+                    <div class="value-content" id="hsl-value">hsl(260, 52%, 55%)</div>
+                    <div class="copy-indicator">Copied!</div>
+                </div>
+                <div class="value-box" id="name-box">
+                    <div class="value-title">
+                        <span>Color Name</span>
+                        <span class="copy-icon">📋</span>
+                    </div>
+                    <div class="value-content" id="color-name">Medium Purple</div>
+                    <div class="copy-indicator">Copied!</div>
+                </div>
+            </div>
+            
+            <button class="copy-all-btn" id="copy-all-btn">Copy All Color Values</button>
+        </div>
+        
+        <div class="color-contrast">
+            <h3 class="palette-title">Color Contrast</h3>
+            <div class="contrast-grid">
+                <div class="contrast-item">
+                    <div class="contrast-preview" id="contrast-white" style="background-color: white; color: black">Text</div>
+                    <div class="contrast-text" id="contrast-white-text">White: 4.5:1</div>
+                </div>
+                <div class="contrast-item">
+                    <div class="contrast-preview" id="contrast-black" style="background-color: black; color: white">Text</div>
+                    <div class="contrast-text" id="contrast-black-text">Black: 8.3:1</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="color-palette">
+            <h3 class="palette-title">Color Palette</h3>
+            <div class="palette-colors">
+                <div class="palette-color" id="palette-1" style="background-color: rgb(96, 40, 180)">Darker</div>
+                <div class="palette-color" id="palette-2" style="background-color: rgb(120, 80, 200)">Current</div>
+                <div class="palette-color" id="palette-3" style="background-color: rgb(160, 120, 220)">Lighter</div>
+                <div class="palette-color" id="palette-4" style="background-color: rgb(200, 180, 240)">Lightest</div>
+            </div>
+        </div>
+        
+        <div class="color-history">
+            <h3 class="history-title">Recent Colors</h3>
+            <div class="history-colors" id="history-colors">
+                <!-- History colors will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Color value copied to clipboard!</div>
+
+    <script src="index.js"></script>
+</body>
+</html>
